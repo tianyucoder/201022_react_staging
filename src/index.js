@@ -1,17 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+//引入Reac核心库，当年我们是在html文件中通过script标签引入的
+import React from 'react'; 
+//引入ReactDOM核心库，当年我们是在html文件中通过script标签引入的
+import ReactDOM from 'react-dom'; 
+//引入整个应用的外壳组件——App，我们程序员缩写的组件，都是作为App子组件的身份去出现
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//渲染App组件即可
+ReactDOM.render(<App/>,document.getElementById('root'));
