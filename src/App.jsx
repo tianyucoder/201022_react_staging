@@ -1,13 +1,12 @@
-import React from 'react'
-import Weather from './components/Weather'
-import './App.css'
+import {Component} from 'react'
+import Count from './components/Count/Count'
 
-export default class App extends React.Component{
+export default class App extends Component{
 	render(){
 		return(
-			<div className="a">
+			<div>
 				<h2>我是App组件</h2>
-				<Weather/>
+				<Count/>
 			</div>
 		)
 	}
