@@ -19,20 +19,24 @@
 						initialValue 表示初始值。一般做数学运算时设置为0，若为筛选最值可以不传。
 			*/
 
-			/* let persons = [
-				{id:'001',name:'老刘',age:14},
-				{id:'002',name:'海峰',age:15},
-				{id:'003',name:'强强',age:16},
-				{id:'004',name:'跃跃',age:17},
-				{id:'005',name:'天禹',age:18},
-			] */
+			let persons = [
+				{id:'001',name:'老刘',sex:'女',age:14},
+				{id:'002',name:'海峰',sex:'男',age:15},
+				{id:'003',name:'强强',sex:'男',age:16},
+				{id:'004',name:'跃跃',sex:'女',age:17},
+				{id:'005',name:'天禹',sex:'男',age:18},
+			]
 
-			let arr = [1,2,3,4,5,6,7,8,9,10]
+			const x = persons.reduce((preValue,current)=>{
+				return preValue + (current.age >= 16 ? 1 : 0)
+			},0)
+			console.log(x)
 
+			/* let arr = [1,2,3,4,5,6,7,8,9,10]
 			//reduce实现累加
 			const result = arr.reduce((preValue,current)=>{
-				return preValue + current
-			})
+				console.log(preValue)
+			},0)
 			
 			//reduce实现累乘
 			const result2 = arr.reduce((preValue,current)=>{
@@ -49,11 +53,10 @@
 				return preValue + (current % 2 === 0 ? 1 : 0)
 			},0)
 			
-			//reduce实现删选最值
+			//reduce实现筛选最值
 			const result5 = arr.reduce((preValue,current)=>{
 				return Math.min(preValue,current)
-			})
-
+			}) */
 
 		</script>
 	</body>

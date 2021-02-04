@@ -23,7 +23,7 @@ export default class App extends Component {
 					<Header addTodo={this.addTodo}/>
 					{/* 给List组件：传递todos做展示，传递updateTodo给Item用，传递deleteTodo给Item用 */}
 					<List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-					<Footer/>
+					<Footer todos={todos} updateAll={this.updateAll} deleteAllDone={this.deleteAllDone}/>
 				</div>
 			</div>
 		)
@@ -57,6 +57,27 @@ export default class App extends Component {
 		//过滤
 		const newTodos = todos.filter( todoObj => todoObj.id !== id)
 		//更新state
+		this.setState({todos:newTodos})
+	}
+
+	//全选 or 全不选
+	updateAll = (done)=>{
+		//获取原来的todos
+		const {todos} = this.state
+		//更改所有todo的done值
+		const newTodos = todos.map((todoObj)=>{
+			return {...todoObj,done}
+		})
+		//更新state
+		this.setState({todos:newTodos})
+	}
+
+	//删除所有已经完成的
+	deleteAllDone = ()=>{
+		const {todos} = this.state
+		const newTodos = todos.filter((todoObj)=>{
+			return todoObj.done === false
+		})
 		this.setState({todos:newTodos})
 	}
 }
