@@ -14,24 +14,39 @@ export default class App extends Component {
 		]
 	}
 
-	//勾选 or 取消勾选一个todo
-	updateTodo = (id,done)=>{
-		const {todos} = this.state
-		//作业
-	}
-
 	render() {
 		//解构赋值获取todos
 		const {todos} = this.state
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
-					<Header/>
+					<Header addTodo={this.addTodo}/>
 					{/* 给List组件：传递todos做展示，传递updateTodo给Item用 */}
 					<List todos={todos} updateTodo={this.updateTodo}/>
 					<Footer/>
 				</div>
 			</div>
 		)
+	}
+
+	//更新一个todo
+	updateTodo = (id,done)=>{
+		//获取todos
+		const {todos} = this.state
+		//根据传递过来的id和done值，更新指定的todo
+		const newTodos = todos.map((todoObj)=>{
+			if(todoObj.id === id) todoObj.done = done
+			return todoObj
+		})
+		//更新状态
+		this.setState({todos:newTodos})
+	}
+
+	//添加一个todo
+	addTodo = (todoObj)=>{
+		//获取原来的todos
+		const {todos} = this.state
+		//更新todos，将传递过来的todoObj追加到todos数组前方
+		this.setState({todos:[todoObj,...todos]})
 	}
 }

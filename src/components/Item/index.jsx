@@ -16,6 +16,7 @@ export default class Item extends Component {
 		)
 	}
 
+	//勾选 or 取消勾选一个todo的回调
 	handleChange = (id)=>{
 		//通知App将某个todo勾选 or 取消勾选
 		return (event)=>{
