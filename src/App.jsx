@@ -21,8 +21,8 @@ export default class App extends Component {
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Header addTodo={this.addTodo}/>
-					{/* 给List组件：传递todos做展示，传递updateTodo给Item用 */}
-					<List todos={todos} updateTodo={this.updateTodo}/>
+					{/* 给List组件：传递todos做展示，传递updateTodo给Item用，传递deleteTodo给Item用 */}
+					<List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
 					<Footer/>
 				</div>
 			</div>
@@ -48,5 +48,15 @@ export default class App extends Component {
 		const {todos} = this.state
 		//更新todos，将传递过来的todoObj追加到todos数组前方
 		this.setState({todos:[todoObj,...todos]})
+	}
+
+	//删除一个todo
+	deleteTodo = (id)=>{
+		//获取状态中原来的todos
+		const {todos} = this.state
+		//过滤
+		const newTodos = todos.filter( todoObj => todoObj.id !== id)
+		//更新state
+		this.setState({todos:newTodos})
 	}
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>1_数组的reduce方法</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+			/* 
+				数组的reduce方法：
+					语法：
+						arr.reduce((preValue, current, index(不常用), arr(不常用))=>{},initialValue)
+						arr：当前操作的数组
+						preValue:第一次执行回调时为给定的初始值initialValue，以后是上一次执行回调时的返回值。
+								备注：若没有传入initialValue，则第一次的preValue值是数组中第一个元素的值。
+						current 表示当前正在处理的元素；
+						index 表示当前正在处理的数组元素的索引，若传入了initialValue值，则为0，否则为1；
+						arr 当前操作的数组(就是arr)
+						initialValue 表示初始值。一般做数学运算时设置为0，若为筛选最值可以不传。
+			*/
+
+			/* let persons = [
+				{id:'001',name:'老刘',age:14},
+				{id:'002',name:'海峰',age:15},
+				{id:'003',name:'强强',age:16},
+				{id:'004',name:'跃跃',age:17},
+				{id:'005',name:'天禹',age:18},
+			] */
+
+			let arr = [1,2,3,4,5,6,7,8,9,10]
+
+			//reduce实现累加
+			const result = arr.reduce((preValue,current)=>{
+				return preValue + current
+			})
+			
+			//reduce实现累乘
+			const result2 = arr.reduce((preValue,current)=>{
+				return preValue * current
+			},1)
+
+			//reduce实现条件求和---所有偶数的和
+			const result3 = arr.reduce((preValue,current)=>{
+				return preValue + (current % 2 === 0 ? current : 0)
+			},0)
+			
+			//reduce实现条件统计---偶数有几个
+			const result4 = arr.reduce((preValue,current)=>{
+				return preValue + (current % 2 === 0 ? 1 : 0)
+			},0)
+			
+			//reduce实现删选最值
+			const result5 = arr.reduce((preValue,current)=>{
+				return Math.min(preValue,current)
+			})
+
+
+		</script>
+	</body>
+</html>
