@@ -29,4 +29,5 @@
 
 ## 3.一个简单的Count组件
 			可以这样引入Component：import {Component} from 'react'
+
 ## 4.
