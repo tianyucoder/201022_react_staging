@@ -48,3 +48,6 @@
 		3.src/App.css放程序员写的公共样式
 		4.public/xxx.css放成型的第三方公共样式
 		5.//eslint-disable-next-line可以临时关闭eslint对下一行代码的语法检查
+		6.关于react中<input type="checkbox">的checked属性与defaultChecked
+				1.checked属性，时时刻刻起作用，而且必须配合disabled或onChange使用，否则就不能改了。
+				2.defaultChecked属性，只起一次作用，可以单独使用 （不建议使用）

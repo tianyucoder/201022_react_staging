@@ -13,6 +13,13 @@ export default class App extends Component {
 			{id:'003',title:'烫头',done:true},
 		]
 	}
+
+	//勾选 or 取消勾选一个todo
+	updateTodo = (id,done)=>{
+		const {todos} = this.state
+		//作业
+	}
+
 	render() {
 		//解构赋值获取todos
 		const {todos} = this.state
@@ -21,7 +28,7 @@ export default class App extends Component {
 				<div className="todo-wrap">
 					<Header/>
 					{/* 给List组件传递todos做展示 */}
-					<List todos={todos}/>
+					<List todos={todos} updateTodo={this.updateTodo}/>
 					<Footer/>
 				</div>
 			</div>
