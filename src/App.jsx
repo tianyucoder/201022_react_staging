@@ -27,7 +27,7 @@ export default class App extends Component {
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Header/>
-					{/* 给List组件传递todos做展示 */}
+					{/* 给List组件：传递todos做展示，传递updateTodo给Item用 */}
 					<List todos={todos} updateTodo={this.updateTodo}/>
 					<Footer/>
 				</div>
