@@ -49,8 +49,8 @@
 		(4).public/xxx.css放成型的第三方公共样式
 		(5).//eslint-disable-next-line可以临时关闭eslint对下一行代码的语法检查
 		(6).关于react中<input type="checkbox">的checked属性与defaultChecked
-				1.checked属性，时时刻刻起作用，而且必须配合disabled或onChange使用，否则就不能改了。
-				2.defaultChecked属性，只起一次作用，可以单独使用 （不建议使用）
+					1.checked属性，时时刻刻起作用，而且必须配合disabled或onChange使用，否则就不能改了。
+					2.defaultChecked属性，只起一次作用，可以单独使用 （不建议使用）
 		(7).关于父子之间通信：
 						1.【父组件】给【子组件】传递数据：通过props传递
 						2.【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数
