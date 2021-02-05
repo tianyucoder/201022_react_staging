@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>前端路由的基石</title>
+</head>
+<body>
+	<button onclick="push('/test1')">路径改为/test1</button><br><br>
+	<button onclick="replace('/test2')">路径改为/test2</button><br><br>
+
+	<script type="text/javascript" src="https://cdn.bootcss.com/history/4.7.2/history.js"></script>
+	<script type="text/javascript">
+		let history = History.createBrowserHistory()
+
+		function push(url){
+			history.push(url)
+		}
+
+		function replace(url){
+			history.replace(url)
+		}
+
+		history.listen((location)=>{
+			console.log(location)
+		})
+
+	</script>
+</body>
+</html>
