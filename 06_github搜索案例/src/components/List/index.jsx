@@ -1,28 +1,9 @@
 import React, { Component } from 'react'
-import PubSub from 'pubsub-js'
 import './index.css'
 
 export default class List extends Component {
-
-	state = {
-		users:[], //存储用户列表
-		isFirst:true, //标识界面是否为初次展示
-		isLoading:false,//标识请求是否处于加载中
-		errMsg:''//存储请求过程中的错误信息
-	}
-
-	componentDidMount(){
-		this.id =  PubSub.subscribe('peiqi',(_,data)=>{
-			this.setState(data)
-		})
-	}
-
-	componentWillUnmount(){
-		PubSub.unsubscribe(this.id)
-	}
-
 	render() {
-		const {users,isFirst,isLoading,errMsg} = this.state
+		const {users,isFirst,isLoading,errMsg} = this.props
 		return (
 			<div className="row">
 				{
