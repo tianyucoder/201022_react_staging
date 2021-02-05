@@ -19,13 +19,20 @@ export default class Search extends Component {
 		const {value} = this.keyWord
 		//校验数据
 		if(!value.trim()) return alert('搜索值不能为空')
+		//发送网络请求前，维护App中的数据
+		this.props.updateAppState({isFirst:false,isLoading:true,users:[],errMsg:''})
 		//发送请求
 		axios.get(`https://api.github.com/search/users?q=${value}`).then(
 			response => {
-				// console.log('成功',response.data.items)
-				this.props.saveUsers(response.data.items)
+				//从请求结果中获取所有用户
+				const {items} = response.data
+				//若请求成功，维护App中的数据
+				this.props.updateAppState({isLoading:false,users:items,errMsg:''})
 			},
-			error => {console.log('失败了',error)}
+			error => {
+				//若请求失败，维护App中的数据
+				this.props.updateAppState({isLoading:false,users:[],errMsg:error.message})
+			}
 		)
 	}
 }
