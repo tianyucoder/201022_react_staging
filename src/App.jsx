@@ -20,7 +20,7 @@ export default class App extends Component {
 							{/* <a className="list-group-item active" href="./about.html">About</a>
 							<a className="list-group-item" href="./home.html">Home</a> */}
 
-							{/* React中我们使用Link标签，实现地址的切换 */}
+							{/* React中我们使用Link标签，实现地址的切换—————— 编写路由链接*/}
 							<Link className="list-group-item" to="/about" >About</Link>
 							<Link className="list-group-item" to="/home">Home</Link>
 						</div>
@@ -28,6 +28,7 @@ export default class App extends Component {
 					<div className="col-xs-6">
 						<div className="panel">
 							<div className="panel-body">
+								{/* 制定规则————注册路由 */}
 								<Route path="/about" component={About}/>
 								<Route path="/home" component={Home}/>
 							</div>
