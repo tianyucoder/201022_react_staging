@@ -18,26 +18,15 @@ export default class Message extends Component {
 						this.state.messageArr.map((msgObj)=>{
 							return (
 								<li key={msgObj.id}>
-									{/* 传递state参数时，to要写成一个对象，且包含pathname、state属性*/}
-									<Link 
-										to={{
-											pathname:'/home/message/detail',
-											state:{
-												id:msgObj.id,
-												title:msgObj.title,
-												content:msgObj.content,
-											} 
-										}}
-									>
-										{msgObj.title}
-									</Link>&nbsp;&nbsp;
+									{/* 传递search参数时，将参数写在？后面，形如key=value & key=value这种形式*/}
+									<Link to={`/home/message/detail?id=${msgObj.id}&title=${msgObj.title}&content=${msgObj.content}`}>{msgObj.title}</Link>&nbsp;&nbsp;
 								</li>
 							)
 						})
 					}
 				</ul>
 				<hr/>
-				{/* 传递state参数时，无需站位（无需声明接收） */}
+				{/* search参数，无需站位（无需声明接收）*/}
 				<Route path="/home/message/detail" component={Detail}/>
 			</div>
 		)

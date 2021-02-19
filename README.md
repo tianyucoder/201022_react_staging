@@ -80,11 +80,11 @@
 								push: ƒ push(path, state)
 								replace: ƒ replace(path, state)
 						location:
-								pathname: "/about"
-								search: ""
-								state: null
+								pathname: "/about" ===>获取当前所处路由的路径
+								search: "" ====> 用于收集search参数（收集的是字符串）
+								state: null ====> 用于收集state参数
 						match:
-								params: {}
+								params: {} ===>用于收集params参数
 
 ## 9.路由的严格匹配与模糊匹配
 				1.默认使用的是模糊匹配
@@ -98,5 +98,14 @@
 ### 11.向路由组件传递参数
 				1.params参数
 							路由链接(携带参数)：<Link to='/demo/test/tom/18'}>详情</Link>
-							注册路由(声明接收)：<Route path="/demo/test/:name/:age" component={Test}/>
+							注册路由(声明接收！！！)：<Route path="/demo/test/:name/:age" component={Test}/>
 							接收参数：this.props.match.params
+				2.search参数
+							路由链接(携带参数)：<Link to='/demo/test?name=tom&age=18'}>详情</Link>
+							注册路由(无需声明接收)：<Route path="/demo/test" component={Test}/>
+							接收参数：this.props.location.search
+							备注：需要借助querystring进行解析
+				3.state参数
+							路由链接(携带参数)：<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}}>详情</Link>
+							注册路由(无需声明接收)：<Route path="/demo/test" component={Test}/>
+							接收参数：this.props.location.state

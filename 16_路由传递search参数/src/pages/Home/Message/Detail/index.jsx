@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import qs from 'querystring'
 
 export default class Detail extends Component {
 	render() {
-		console.log(this.props.location.pathname)
-		const {id,title,content} = this.props.location.state
+		//接收search参数
+		console.log('@',this)
+		const {search} = this.props.location
+		const {id,title,content} = qs.parse(search.slice(1))
 		return (
 			<ul>
 				<li>ID:{id}</li>
