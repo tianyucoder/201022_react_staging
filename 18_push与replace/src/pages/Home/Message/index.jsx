@@ -20,7 +20,6 @@ export default class Message extends Component {
 								<li key={msgObj.id}>
 									{/* 传递state参数时，to要写成一个对象，且包含pathname、state属性*/}
 									<Link 
-										replace
 										to={{
 											pathname:'/home/message/detail',
 											state:{
@@ -32,41 +31,15 @@ export default class Message extends Component {
 									>
 										{msgObj.title}
 									</Link>&nbsp;&nbsp;
-									<button onClick={this.show(msgObj,true)}>push查看</button>&nbsp;&nbsp;
-									<button onClick={this.show(msgObj,false)}>replace查看</button>
 								</li>
 							)
 						})
 					}
 				</ul>
-				<button onClick={this.houtui}>←后退</button>
-				<button onClick={this.qianjin}>前进→</button>
-				<button onClick={this.demo}>测试一下go</button>
 				<hr/>
 				{/* 传递state参数时，无需站位（无需声明接收） */}
 				<Route path="/home/message/detail" component={Detail}/>
 			</div>
 		)
 	}
-
-	show = (msgObj,isPush)=>{
-		return ()=>{
-			isPush ? this.props.history.push('/home/message/detail',msgObj) : 
-			this.props.history.replace('/home/message/detail',msgObj)
-		}
-	}
-
-	houtui = ()=>{
-		this.props.history.goBack()
-	}
-
-	qianjin = ()=>{
-		this.props.history.goForward()
-	}
-
-	demo = ()=>{
-		this.props.history.go(-2)
-	}
-
-
 }
