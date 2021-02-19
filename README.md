@@ -81,3 +81,12 @@
 								state: null
 						match:
 								params: {}
+
+## 8.路由的严格匹配与模糊匹配
+				1.默认使用的是模糊匹配
+				2.开启严格匹配：<Route exact={true} path="/about" component={About}/>
+				3.严格匹配不要随便开启，需要再开，开启会导致无法继续匹配二级路由
+				
+## 9.二级路由、三级路由
+
+##
