@@ -18,16 +18,14 @@ export default class Message extends Component {
 						this.state.messageArr.map((msgObj)=>{
 							return (
 								<li key={msgObj.id}>
-									{/* 传递params参数时，将参数变为路径的一部分*/}
-									<Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}/${msgObj.content}`}>{msgObj.title}</Link>&nbsp;&nbsp;
+									<Link to="/home/message/detail">{msgObj.title}</Link>&nbsp;&nbsp;
 								</li>
 							)
 						})
 					}
 				</ul>
 				<hr/>
-				{/* 接收params参数时，要提前站位(声明接收参数) */}
-				<Route path="/home/message/detail/:id/:title/:content" component={Detail}/>
+				<Route path="/home/message/detail" component={Detail}/>
 			</div>
 		)
 	}
