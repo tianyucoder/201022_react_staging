@@ -55,3 +55,29 @@
 						1.【父组件】给【子组件】传递数据：通过props传递
 						2.【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数
 		(8).掌握数组的reduce方法
+
+## 6.NavLink的使用
+			1.NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
+
+## 7.路由组件和一般组件的区别
+			1.使用方式不同：
+						一般组件：程序员自己写组件标签触发渲染，例如： <Demo/>
+						路由组件：靠路由器匹配路径触发渲染，例如：<Route path="/about" component={Demo}/>
+			2.存放位置不同：
+						一般组件：components
+						路由组件：pages
+			3.收到的props不同：
+						一般组件：程序写组件标签时传了什么，就收到什么
+						路由组件：收到固定一些属性，决堤属性如下
+						history:
+								go: ƒ go(n)
+								goBack: ƒ goBack()
+								goForward: ƒ goForward()
+								push: ƒ push(path, state)
+								replace: ƒ replace(path, state)
+						location:
+								pathname: "/about"
+								search: ""
+								state: null
+						match:
+								params: {}
