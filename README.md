@@ -115,3 +115,8 @@
 							路由链接(携带参数)：<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}}>详情</Link>
 							注册路由(无需声明接收)：<Route path="/demo/test" component={Test}/>
 							接收参数：this.props.location.state
+
+## 12.HashRouter
+		1.兼容性相对好一些
+		2.路径包含#
+		3.不允许连续跳转两个相同的路由，从而导致state参数无法二次传递
