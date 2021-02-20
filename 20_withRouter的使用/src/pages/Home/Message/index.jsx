@@ -18,16 +18,17 @@ export default class Message extends Component {
 						this.state.messageArr.map((msgObj)=>{
 							return (
 								<li key={msgObj.id}>
+									{/* 传递state参数时，to要写成一个对象，且包含pathname、state属性*/}
 									<Link 
-										to={`/home/message/detail/${msgObj.id}/${msgObj.title}/${msgObj.content}`}
-										/* to={{
+										replace
+										to={{
 											pathname:'/home/message/detail',
 											state:{
 												id:msgObj.id,
 												title:msgObj.title,
 												content:msgObj.content,
 											} 
-										}} */
+										}}
 									>
 										{msgObj.title}
 									</Link>&nbsp;&nbsp;
@@ -42,15 +43,16 @@ export default class Message extends Component {
 				<button onClick={this.qianjin}>前进→</button>
 				<button onClick={this.demo}>测试一下go</button>
 				<hr/>
-				<Route path="/home/message/detail/:id/:title/:content" component={Detail}/>
+				{/* 传递state参数时，无需站位（无需声明接收） */}
+				<Route path="/home/message/detail" component={Detail}/>
 			</div>
 		)
 	}
 
 	show = (msgObj,isPush)=>{
 		return ()=>{
-			isPush ? this.props.history.push(`/home/message/detail/${msgObj.id}/${msgObj.title}/${msgObj.content}`) : 
-			this.props.history.replace(`/home/message/detail/${msgObj.id}/${msgObj.title}/${msgObj.content}`)
+			isPush ? this.props.history.push('/home/message/detail',msgObj) : 
+			this.props.history.replace('/home/message/detail',msgObj)
 		}
 	}
 

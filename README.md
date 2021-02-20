@@ -101,7 +101,7 @@
 				1.编写路由链接、注册路由时要带有上一级路由的路径
 				2.不要开启严格模式
 
-### 11.向路由组件传递参数
+## 11.向路由组件传递参数
 				1.params参数
 							路由链接(携带参数)：<Link to='/demo/test/tom/18'}>详情</Link>
 							注册路由(声明接收！！！)：<Route path="/demo/test/:name/:age" component={Test}/>

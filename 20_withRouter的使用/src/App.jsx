@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Home from './pages/Home'
 import About from './pages/About'
 import Header from './components/Header'
-import {NavLink,Route,Switch,Redirect} from 'react-router-dom'
+import {NavLink,Route,Switch} from 'react-router-dom'
 
 export default class App extends Component {
 	render() {
@@ -24,7 +24,6 @@ export default class App extends Component {
 								<Switch>
 									<Route path="/about" component={About}/>
 									<Route path="/home" component={Home}/>
-									<Redirect to="/about"/>
 								</Switch>
 							</div>
 						</div>
